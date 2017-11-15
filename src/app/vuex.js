@@ -1,4 +1,6 @@
-import { vuex as HelloWorld } from './hello-world'
 import { vuex as FireWords } from './fire-words'
+import { vuex as Dashboard } from './dashboard'
+import { vuex as Login } from './login'
+import { vuex as SignUp } from './sign-up'
 
-export default { HelloWorld, FireWords }
+export default { Dashboard, FireWords, Login, SignUp }

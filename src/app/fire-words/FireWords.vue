@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <v-nav />
     <h1>Words</h1>
     <li v-for="word in words">
       {{word.text}}&nbsp;<button v-on:click=deleteWord(word.id)>X</button>
@@ -13,12 +14,17 @@
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import * as components from './components'
 
 export default {
   name: 'FireWords',
 
   mounted () {
     this.loadWords()
+  },
+
+  components: {
+    'v-nav': components.FireNav
   },
 
   methods: {

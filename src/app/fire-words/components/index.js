@@ -1,1 +1,1 @@
-export { default as FireWords } from './FireWords'
+export { default as FireNav } from './FireNav'

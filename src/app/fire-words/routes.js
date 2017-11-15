@@ -1,8 +1,8 @@
-import * as components from './components'
+import { default as FireWords } from './FireWords'
 
 export default [
   {
-    path: '/',
-    component: components.FireWords
+    path: '/words',
+    component: FireWords
   }
 ]
