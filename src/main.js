@@ -2,6 +2,7 @@ import Vue from 'vue'
 import { App } from './app'
 import router from './router'
 import store from './store'
+<<<<<<< HEAD
 import firebase from './firebase'
 
 Vue.config.productionTip = false
@@ -16,4 +17,15 @@ firebase.auth().onAuthStateChanged(() => {
     router,
     render: h => h(App)
   })
+=======
+
+Vue.config.productionTip = false
+
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  store,
+  router,
+  render: h => h(App)
+>>>>>>> poc/vue-rest
 })

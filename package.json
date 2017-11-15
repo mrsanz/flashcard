@@ -15,12 +15,12 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "firebase": "^4.6.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "firebase": "^4.6.1",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",

@@ -7,5 +7,8 @@ export default {
       return word.id === payload
     })
     state.words.splice(index, 1)
+  },
+  INIT_WORDS (state, payload) {
+    state.words = payload
   }
 }

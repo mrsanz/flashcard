@@ -1,21 +1,20 @@
-import firebase from '../../../firebase'
+import api from '../api'
 
 export const addWord = ({ commit }, payload) => {
-  firebase.database().ref('words').push(payload)
+  return api.addWord(payload)
+  .then(data => commit('ADD_WORD', { text: payload, id: data.name }))
+  .catch(e => console.log(e))
 }
 
 export const removeWord = ({ commit }, payload) => {
-  firebase.database().ref('words').child(payload).remove()
+  return api.removeWord(payload)
+  .then(() => commit('REMOVE_WORD', payload))
 }
 
-export const loadWords = ({ commit, state }, limit = 100) => {
+export const initWords = ({ commit, state }) => {
   if (state.words.length === 0) {
-    const wordsRef = firebase.database().ref('words').orderByKey().limitToLast(limit)
-    wordsRef.on('child_added', snapshot => {
-      commit('ADD_WORD', { text: snapshot.val(), id: snapshot.key })
-    })
-    wordsRef.on('child_removed', snapshot => {
-      commit('REMOVE_WORD', snapshot.key)
-    })
+    return api.fetchAllWords()
+    .then(data => Object.keys(data).map(key => ({ id: key, text: data[key] })))
+    .then(words => commit('INIT_WORDS', words))
   }
 }

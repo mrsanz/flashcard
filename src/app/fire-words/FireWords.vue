@@ -20,7 +20,7 @@ export default {
   name: 'FireWords',
 
   mounted () {
-    this.loadWords()
+    this.initWords()
   },
 
   components: {
@@ -29,14 +29,16 @@ export default {
 
   methods: {
     ...mapActions([
+      'initWords',
       'addWord',
-      'removeWord',
-      'loadWords'
+      'removeWord'
     ]),
 
     submitWord (param) {
-      this.addWord(param)
-      this.clearForm()
+      if (param) {
+        this.addWord(param)
+        this.clearForm()
+      }
     },
 
     clearForm () {
